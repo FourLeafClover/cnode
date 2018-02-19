@@ -1,19 +1,21 @@
 <template>
 	<div class="footer clearfix">
         <div>
-            <div class="item" @click="collect()" style="color:red" v-show="myhascollected">
+            <div class="item" @click="collect()" style="color:red" v-show="isCollected">
                 <i class="fa fa-star" ></i><br/>
                 <span>收藏</span>
             </div>
-            <div class="item" @click="collect()" v-if="myhascollected==false">
+            <div class="item" @click="collect()" v-if="isCollected==false">
                 <i class="fa fa-star" ></i><br/>
                 <span>收藏</span>
             </div>
         </div>
         <div>
-            <div class="item" @click="showComment()">
-                <i class="fa fa-commenting"></i><br/>
-                <span>评论</span>
+            <div class="item" >
+                <div @click="showComment()">
+                  <i class="fa fa-commenting"></i><br/>
+                  <span>评论({{commentLength}})</span>
+                </div>
             </div>
         </div>
     </div>
@@ -25,32 +27,15 @@ import userSvc from "../service/user";
 export default {
   name: "detailBottombar",
   props: {
-    test: {
-      type: String
-    },
-    hascollected: {
-      type: Boolean,
-      default: false
-    },
-    isComment: {
-      type: Boolean,
-      default: false
-    },
-    id: {
-      type: String,
-      default: ""
-    },
-    comments: {
-      type: Array,
-      default: () => {
-        return [];
-      }
+    topic: {
+      type: Object,
+      default: {}
     }
   },
   data() {
     return {
-      mycomments: this.comments,
-      myhascollected: this.hascollected
+      commentLength: this.topic.replies.length,
+      isCollected: this.topic.is_collect
     };
   },
   components: {
@@ -61,13 +46,13 @@ export default {
       this.$root.$emit("EVENT_COMMENT_SHOW", true);
     },
     collect() {
-      if (this.myhascollected) {
-        userSvc.unCollectTopic(this.id, () => {
-          this.$set(this.$data, "myhascollected", false);
+      if (this.isCollected) {
+        userSvc.unCollectTopic(this.topic.id, () => {
+          this.$set(this.$data, "isCollected", false);
         });
       } else {
-        userSvc.collectTopic(this.id, () => {
-          this.$set(this.$data, "myhascollected", true);
+        userSvc.collectTopic(this.topic.id, () => {
+          this.$set(this.$data, "isCollected", true);
         });
       }
     }
@@ -98,7 +83,6 @@ export default {
 .footer .item {
   padding-top: 8px;
   color: gray;
-  width: 40px;
   margin-left: 50%;
   transform: translateX(-50%);
 }

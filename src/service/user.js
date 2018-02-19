@@ -71,16 +71,33 @@ let unCollectTopic = (id, cb) => {
 }
 
 let addComment = (topicId, content, replyId, cb) => {
-    axios.post(`topic/${topicId}/replies`, {
-        data: {
-            reply_id: replyId,
-            content: content,
-            accesstoken: getAccessToken()
-        },
+    let token = getAccessToken();
+    axios({
+        method: 'post',
+        url: `topic/${topicId}/replies`,
+        data: `accesstoken=${token}&reply_id=${replyId}&content=${content}`,
         isAuth: true
     }).then(response => {
         if (response.success) {
             cb();
+        } else {
+            alert("评论失败");
+        }
+    });
+}
+
+let likeComment = (commentId, cb) => {
+    let token = getAccessToken();
+    axios({
+        method: 'post',
+        url: `/reply/${commentId}/ups`,
+        data: `accesstoken=${token}`,
+        isAuth: true
+    }).then(response => {
+        if (response.success) {
+            cb();
+        } else {
+            alert("操作失败");
         }
     });
 }
@@ -93,5 +110,7 @@ export default {
     addComment: addComment,
     collectTopic: collectTopic,
     unCollectTopic: unCollectTopic,
-    getAccessToken: getAccessToken
+    getAccessToken: getAccessToken,
+    likeComment: likeComment,
+    addComment: addComment
 }

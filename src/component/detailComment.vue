@@ -1,7 +1,7 @@
 <template>
     <div :class="{'show':isShowComment}" class="commentPanel">
       	<div class="comment">
-         <div class="item" v-for="item in comments" v-if="comments.length>0" :key="item.id">
+         <div class="item" v-for="item in mycomments" v-if="mycomments.length>0" :key="item.id">
             <div class="line1">
                 <img :src="item.author.avatar_url" />
                 <span class="name">{{item.author.loginname}}</span>
@@ -9,34 +9,45 @@
             <div class="line2" v-html="item.content">
             </div>
             <div class="line3">
-              <span class="back"><i class="fa fa-star-o"></i>点赞</span>
-              <span class="item"><i class="fa fa-heart-o"></i>收藏</span>
+              <span class="fa fa-trash-o" v-if="false" @click="likeComment(item)"><i class="fa fa-star-o"></i>点赞</span>
+              <span class="star" :class="{'active':item.is_uped}" @click="likeComment(item)"><i class="fa fa-thumbs-o-up"></i>点赞</span>
+              <span class="item" @click="reply(item)"><i class="fa fa-reply"></i>回复</span>
             </div>
         </div>
         <div style="height:80px"></div>
       </div>
       <div class="inputComment">
-          <span class="back" @click="hideComment()">取消</span>
-          <input placeholder="请输入评论" />
-          <span><i class="fa fa-send"></i></span>
+          <div v-if="replyComment!=null" class="replyComment">
+             回复:<span>{{replyComment.author.loginname}}</span>
+             <span class="remove" @click="removeReply()"><i class="fa fa-remove"></i></span>
+          </div>
+          <div>
+            <span class="back" @click="hideComment()">取消</span>
+            <input placeholder="请输入评论" v-model="content" />
+            <span @click="addComment()"><i class="fa fa-send"></i></span>
+          </div>
       </div>
     </div>
 </template>
 
 <script>
+import userSvc from "../service/user";
+
 export default {
   name: "detailBottombar",
   props: {
-    comments: {
-      type: Array,
-      default: () => {
-        return [];
-      }
+    topic: {
+      type: Object,
+      default: {}
     }
   },
   data() {
     return {
-      isShowComment: false
+      isShowComment: false,
+      mycomments: this.topic.replies,
+      replyComment: null,
+      content: "",
+      myAddComment: []
     };
   },
   mounted() {
@@ -47,6 +58,27 @@ export default {
   methods: {
     hideComment() {
       this.$set(this.$data, "isShowComment", false);
+    },
+    likeComment(item) {
+      userSvc.likeComment(item.id, () => {
+        item.is_uped = !item.is_uped;
+        this.$set(this.$data, "mycomments", this.mycomments);
+      });
+    },
+    reply(item) {
+      this.$set(this.$data, "replyComment", item);
+    },
+    removeReply() {
+      this.$set(this.$data, "replyComment", null);
+    },
+    addComment() {
+      userSvc.addComment(
+        this.topic.id,
+        this.replyComment ? this.replyComment.id : "",
+        () => {
+          alert("评论成功");
+        }
+      );
     }
   }
 };
@@ -147,5 +179,32 @@ export default {
   padding: 5px;
   padding-right: 5px;
   border-radius: 5px;
+}
+
+.star.active {
+  color: red;
+}
+
+.star.active i {
+  color: red;
+}
+
+.replyComment {
+  padding: 5px;
+  color: gray;
+  position: relative;
+}
+
+.replyComment span {
+  color: blue;
+  margin-left: 5px;
+}
+
+.replyComment .remove {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
 }
 </style>

@@ -14,8 +14,8 @@
       <div class="markdown" v-html="detail.content"></div>
       <div style="height:80px;"></div>
     </div>
-    <detailBottombar :comments="comments" :id="detail.id" :hascollected="detail.is_collect" v-if="detail!=null" />
-    <detail-comment v-bind:comments="comments" v-if="detail!=null" />
+    <detailBottombar :topic="detail" v-if="detail!=null" />
+    <detail-comment :topic="detail" v-if="detail!=null" />
   </div>
 </template>
 <script>
@@ -26,9 +26,7 @@ import detailComment from "../component/detailComment";
 export default {
   data() {
     return {
-      detail: null,
-      comments: [],
-      curId: 0
+      detail: null
     };
   },
   components: {
@@ -36,7 +34,6 @@ export default {
     detailComment: detailComment
   },
   created() {
-    this.curId = this.$route.query.id;
     this.init();
   },
   methods: {
@@ -49,22 +46,17 @@ export default {
       });
     },
     init() {
-      cnode.loadTopicDetail(this.curId, result => {
+      cnode.loadTopicDetail(this.$route.query.id, result => {
         this.$set(this.$data, "detail", result);
-        if (result == null || result.replies.length == 0) {
-          this.comments = [];
-        } else {
-          this.comments = result.replies;
-        }
-        this.$set(this.$data, "comments", this.comments);
       });
     }
   },
   activated() {
-    this.curId = this.$route.query.id;
     this.init();
   },
-  deactivated() {}
+  deactivated() {
+    this.$set(this.$data, "detail", null);
+  }
 };
 </script>
 <style scoped>

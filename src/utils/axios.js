@@ -14,6 +14,11 @@ axios.interceptors.request.use(config => {
             }
         }
     }
+    if (config.isAuth) {
+        if (accessToken == null) {
+            alert("亲,您还未登录,请点击右上角登录");
+        }
+    }
     return config;
 }, error => {
     return Promise.reject(error)
