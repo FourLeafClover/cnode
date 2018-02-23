@@ -44,12 +44,11 @@ let collectTopic = (id, cb) => {
         method: 'post',
         url: 'topic_collect/collect',
         data: `accesstoken=${token}&topic_id=${id}`,
-        isAuth: true
+        isAuth: true,
+        successMsg: "收藏成功"
     }).then(response => {
         if (response.success) {
             cb();
-        } else {
-            alert("收藏失败,请刷新页面重试");
         }
     });
 }
@@ -60,12 +59,11 @@ let unCollectTopic = (id, cb) => {
         method: 'post',
         url: 'topic_collect/de_collect',
         data: `accesstoken=${token}&topic_id=${id}`,
-        isAuth: true
+        isAuth: true,
+        successMsg: "已取消收藏"
     }).then(response => {
         if (response.success) {
             cb();
-        } else {
-            alert("取消收藏失败,请刷新页面重试");
         }
     });
 }
@@ -76,12 +74,11 @@ let addComment = (topicId, content, replyId, cb) => {
         method: 'post',
         url: `topic/${topicId}/replies`,
         data: `accesstoken=${token}&reply_id=${replyId}&content=${content}`,
-        isAuth: true
+        isAuth: true,
+        successMsg: "评论成功"
     }).then(response => {
         if (response.success) {
-            cb();
-        } else {
-            alert("评论失败");
+            cb(response.reply_id);
         }
     });
 }
@@ -96,8 +93,6 @@ let likeComment = (commentId, cb) => {
     }).then(response => {
         if (response.success) {
             cb();
-        } else {
-            alert("操作失败");
         }
     });
 }

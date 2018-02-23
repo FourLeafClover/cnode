@@ -20,12 +20,15 @@ let buildTopicTag = (topic) => {
         if (tab == "job") {
             tags.push("招聘")
         }
+        if (tab == "dev") {
+            tags.push("测试")
+        }
     }
     return tags.join("/");
 }
 
-let loadHomePage = (page, tab, cb) => {
-    axios.get(`topics?page=${page}&tab=${tab}&limit=20&mdrender=false`).then((response) => {
+let loadHomePage = (page, pagesize, tab, cb) => {
+    axios.get(`topics?page=${page}&tab=${tab}&limit=${pagesize}&mdrender=false`).then((response) => {
         let result = [];
         if (response.success) {
             response.data.forEach(item => {
@@ -38,6 +41,7 @@ let loadHomePage = (page, tab, cb) => {
                     createTime: common.formatDate(item.create_at, "yyyy/MM/dd"),
                     title: item.title,
                     visitCount: common.buildVisitCount(item.visit_count),
+                    replyCount: item.reply_count,
                     tag: buildTopicTag(item),
                     content: common.buildTopicSummary(item.content).substr(0, 200),
                     id: item.id
@@ -68,7 +72,29 @@ let loadTopicDetail = (id, cb) => {
     })
 }
 
+let loadUser = (username, cb) => {
+    axios.get(`user/${username}`).then((response) => {
+        let detail = null;
+        if (response.success) {
+            detail = response.data;
+        }
+        cb(detail);
+    });
+}
+
+let loadUserCollect = (username, cb) => {
+    axios.get(`topic_collect/${username}`).then((response) => {
+        let detail = null;
+        if (response.success) {
+            detail = response.data;
+        }
+        cb(detail);
+    });
+}
+
 export default {
     loadHomePage: loadHomePage,
-    loadTopicDetail: loadTopicDetail
+    loadTopicDetail: loadTopicDetail,
+    loadUser: loadUser,
+    loadUserCollect: loadUserCollect
 }

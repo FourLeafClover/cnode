@@ -52,7 +52,6 @@ html,
 body {
 	font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
 	overflow-x: hidden;
-	height: 100%;
 	background-color: #f4f5f5;
 }
 
@@ -159,7 +158,6 @@ label {
 }
 
 .layoutconent {
-	height: 100%;
 	padding-top: 55px;
 }
 
@@ -182,8 +180,6 @@ label {
 	margin: 0;
 	background: #f0f0f0;
 	line-height: 20px;
-	/* 行距 */
-	width: 600px;
 }
 
 .markdown-text p {
