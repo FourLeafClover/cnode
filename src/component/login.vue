@@ -1,17 +1,34 @@
 <template>
-  <div class="loginPanel" v-show="isShowLoginPanel">
+  <div class="loginPanel" :class="{'on':isShowLoginPanel}">
     <div>
-      <img src="../assets/img/log.jpg" />
+      <img class="log" src="../assets/img/log.jpg" />
     </div>
     <div class="line1">
       <textarea v-model="token" placeholder="请输入登陆Token" />
     </div>
     <div class="btn" @click="login">
-      验证
+      登陆验证
     </div>
     <span class="close" @click="closeLogin()">
       <i class="fa fa-close"></i>
     </span>
+    <div class="author" @click="aboutme()"></div>
+    <div class="findToken">
+      <span>没有登陆Token?</span>
+      <a href="https://cnodejs.org/setting">点击获取</a>
+    </div>
+    <div class="footer">
+      <div>
+        <a href="https://github.com/FourLeafClover/vue-cnode">
+          <i class="fa fa-github"></i>
+          Github
+        </a>
+      </div>
+      <div class="aboutme">
+        <a href="http://47.97.172.44/aboutme/">
+          <i class="fa fa-user-circle"></i> 关于我</a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -35,9 +52,10 @@
             this.closeLogin();
             this.$root.$emit("EVENT_LOGINOPERATOR");
           });
-        } else {
-          alert("请输入token");
         }
+      },
+      aboutme(){
+        window.location.href = "http://47.97.172.44/aboutme/";
       }
     },
     mounted() {
@@ -51,23 +69,30 @@
 <style scoped>
   .loginPanel {
     position: fixed;
-    top: 30%;
-    margin: 0 auto;
-    transform: translate(-50%);
+    top: 0px;
     background-color: white;
     box-shadow: 1px 1px 1px 1px grey;
     z-index: 1000;
-    left: 50%;
-    padding: 20px;
-    width: 80%;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: all 0.5s;
   }
 
-  .loginPanel img {
+  .loginPanel.on {
+    transition: all 0.5s;
+    transform: translateY(0);
+  }
+
+  .loginPanel .log {
     width: 50%;
     position: absolute;
-    top: 10px;
-    left: 20px;
+    top: 20px;
+    left: 50%;
+    width: 100px;
+    transform: translateX(-50%);
   }
 
   .loginPanel .line1 {
@@ -76,30 +101,70 @@
 
   .loginPanel textarea {
     line-height: 25px;
-    height: 80px;
+    height: 300px;
     width: 100%;
     border: 1px solid gray;
     border-radius: 5px;
     font-size: 18px;
+    padding: 20px;
   }
 
   .btn {
     margin: 0 auto;
     padding: 5px;
     border-radius: 5px;
-    width: 100px;
     background-color: green;
-    margin-top: 15px;
+    right: 20px;
+    top: 20px;
     color: 20px;
     text-align: center;
     letter-spacing: 5px;
+    color: white;
+    margin-top: 10px;
+    width: 100%;
+    padding: 5px 0px;
   }
 
   .close {
-    position: absolute;
-    right: 20px;
+    position: fixed;
+    left: 20px;
     top: 20px;
     font-size: 25px;
     color: gray;
+  }
+
+  .author {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    height: 30px;
+    width: 30px;
+    background-size: contain;
+    background-image: url(http://47.97.172.44/aboutme/assets/img/log3.jpg);
+    border-radius: 50%;
+  }
+
+  .findToken {
+    width: 100%;
+    text-align: right;
+    padding-top: 10px;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 10px 0px;
+  }
+
+  .footer>div {
+    width: 50%;
+    float: left;
+    font-size: 15px;
+    position: relative;
+  }
+
+  .footer>div {
+    text-align: center;
   }
 </style>
