@@ -16,7 +16,7 @@
         <div style="height:80px;"></div>
       </div>
     </div>
-    <detailBottombar :topic="detail" v-if="detail!=null" />
+    <detailBottombar :topic="detail" />
   </layout>
 </template>
 <script>
@@ -44,13 +44,13 @@
       }
     },
     activated() {
-      this.$set(this.$data, "detail", null);
-      this.init();
+      if (this.detail == null || (this.$route.query.id != this.detail.id)) {
+        this.init();
+      }
     }
   };
 </script>
 <style scoped>
-  
   .detail {
     width: 100%;
     background-color: white;

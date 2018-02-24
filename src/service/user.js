@@ -91,7 +91,7 @@ let likeComment = (commentId, cb) => {
         data: `accesstoken=${token}`,
         isAuth: true
     }).then(response => {
-        if (response.success) {
+        if (response && response.success) {
             cb();
         }
     });

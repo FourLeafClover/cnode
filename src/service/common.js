@@ -110,9 +110,13 @@ let buildVisitCount = (count) => {
     return "1w+";
 }
 
-let buildTopicSummary = (markdownStr) => {
+let convertMarkdown = (markdownStr) => {
+    let locationPath = window.location.origin + window.location.pathname + "/#";
     while (markdownStr.indexOf('src=\"//dn-cnode.qbox.me') >= 0) {
         markdownStr = markdownStr.replace('src=\"//dn-cnode.qbox.me', "src=\"http://dn-cnode.qbox.me");
+    }
+    while (markdownStr.indexOf('href="/user/') >= 0) {
+        markdownStr = markdownStr.replace('href="/user/', `href="${locationPath}/user/`);
     }
     return markdownStr;
 }
@@ -126,5 +130,5 @@ export default {
     setPageInfo: setPageInfo,
     convertDuration: convertDuration,
     buildVisitCount: buildVisitCount,
-    buildTopicSummary: buildTopicSummary
+    convertMarkdown: convertMarkdown
 }

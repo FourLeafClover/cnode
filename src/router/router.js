@@ -16,7 +16,7 @@ const routers = [{
     name: 'topiccomment',
     component: comment
 }, {
-    path: "/usr/:username",
+    path: "/user/:username",
     name: "userzone",
     component: zone
 }]

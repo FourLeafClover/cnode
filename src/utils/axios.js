@@ -33,30 +33,33 @@ axios.interceptors.request.use(config => {
     return Promise.reject(error)
 })
 
-axios.interceptors.response.use(response => {
+axios.interceptors.response.use((response, a, b, c) => {
     if (response.data.success) {
-        if (window.global.$vue.successMsg != undefined && window.global.$vue.successMsg != '') {
+        if (response.config && response.config && (response.config.successMsg !== undefined)) {
             window.global.$vue.$root.$emit("EVENT_SHOWTOAST", {
-                content: window.global.$vue.successMsg,
+                content: response.config.successMsg,
                 type: 'success'
-            });
-        }
-    } else {
-        if (response.data.message) {
-            window.global.$vue.$root.$emit("EVENT_SHOWTOAST", {
-                content: response.data.message,
-                type: 'warning'
-            });
-        } else {
-            window.global.$vue.$root.$emit("EVENT_SHOWTOAST", {
-                content: '请求失败',
-                type: 'warning'
             });
         }
     }
     return response.data;
-}, error => {
+}, (error, a, b, c) => {
 
-})
+    // 全局处理异常
+    if (error && error.response && error.response.data && error.response.data.error_msg) {
+        window.global.$vue.$root.$emit("EVENT_SHOWTOAST", {
+            content: error.response.data.error_msg,
+            type: 'warning'
+        });
+    } else {
+        window.global.$vue.$root.$emit("EVENT_SHOWTOAST", {
+            content: "请求异常,请稍后重试",
+            type: 'warning'
+        });
+    }
+    return {
+        success: false
+    }
+});
 
 export default axios;

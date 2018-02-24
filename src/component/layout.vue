@@ -75,11 +75,6 @@
       };
     },
     methods: {
-      goHome() {
-        this.$router.push({
-          path: "/"
-        });
-      },
       gotoZone() {
         this.$router.push({
           name: "userzone",
@@ -87,6 +82,7 @@
             username: this.loginUser.loginname
           }
         });
+        this.toggleMemberAccountPanel();
       },
       showTab() {
         this.$set(this.$data, "isShowTabs", !this.isShowTabs);
@@ -96,9 +92,11 @@
         this.$router.push({
           path: url
         });
+        this.toggleMemberAccountPanel();
       },
       login() {
         this.$root.$emit("Event_OPENLOGIN");
+        this.toggleMemberAccountPanel();
       },
       loginout() {
         userSvc.loginOut();
@@ -115,12 +113,15 @@
       },
       issue() {
         window.location.href = "https://github.com/FourLeafClover/vue-cnode/issues";
+        this.toggleMemberAccountPanel();
       },
       aboutme() {
         window.location.href = "http://47.97.172.44/aboutme";
+        this.toggleMemberAccountPanel();
       },
-      gotoGithub(){
+      gotoGithub() {
         window.location.href = "https://github.com/FourLeafClover/vue-cnode";
+        this.toggleMemberAccountPanel();
       }
     },
     mounted() {

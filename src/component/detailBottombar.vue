@@ -60,6 +60,12 @@
           });
         }
       }
+    },
+    watch: {
+      topic() {
+        this.$set(this.$data, "commentLength", this.topic ? this.topic.replies.length : 0);
+        this.$set(this.$data, "isCollected", this.topic ? this.topic.is_collect : false);
+      }
     }
   };
 </script>

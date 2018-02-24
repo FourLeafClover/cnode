@@ -15,7 +15,7 @@
     <div class="author" @click="aboutme()"></div>
     <div class="findToken">
       <span>没有登陆Token?</span>
-      <a href="https://cnodejs.org/setting">点击获取</a>
+      <a href="https://cnodejs.org/signin">点击获取</a>
     </div>
     <div class="footer">
       <div>
@@ -54,7 +54,7 @@
           });
         }
       },
-      aboutme(){
+      aboutme() {
         window.location.href = "http://47.97.172.44/aboutme/";
       }
     },
@@ -75,7 +75,6 @@
     z-index: 1000;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
     padding: 20px;
     transform: translateY(100%);
     transition: all 0.5s;

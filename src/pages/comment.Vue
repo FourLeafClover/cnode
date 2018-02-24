@@ -98,14 +98,14 @@
             replyId = this.replyComment.id;
             let loginname = this.replyComment.author.loginname;
             content =
-              `[@${loginname}](/user/${loginname})        ${this.content}       [~From Frank.Cnode](http://47.97.172.44/cnode)`;
+              `[@${loginname}](/user/${loginname})        ${this.content}       [~From Frank.Cnode](https://github.com/FourLeafClover/vue-cnode)`;
             htmlContent =
-              `<a href='/usr/${loginname}'>@${loginname}</a>     ${this.content}      <a href='http://47.97.172.44/cnode'>~~~From Frank.Cnode</a?`;
+              `<a href='${window.location.origin}${window.location.pathname}/#/user/${loginname}'>@${loginname}</a>     ${this.content}      <a href='https://github.com/FourLeafClover/vue-cnode'>~~~From Frank.Cnode</a?`;
           } else {
             content =
-              `${this.content}       [~From Frank.Cnode](http://47.97.172.44/cnode)`;
+              `${this.content}       [~From Frank.Cnode](https://github.com/FourLeafClover/vue-cnode)`;
             htmlContent =
-              ` ${this.content}      <a href='http://47.97.172.44/cnode'>~From Frank.Cnode</a?`;
+              ` ${this.content}      <a href='https://github.com/FourLeafClover/vue-cnode'>~From Frank.Cnode</a?`;
           }
           userSvc.addComment(
             this.detail.id,

@@ -43,7 +43,7 @@ let loadHomePage = (page, pagesize, tab, cb) => {
                     visitCount: common.buildVisitCount(item.visit_count),
                     replyCount: item.reply_count,
                     tag: buildTopicTag(item),
-                    content: common.buildTopicSummary(item.content).substr(0, 200),
+                    content: common.convertMarkdown(item.content).substr(0, 200),
                     id: item.id
                 });
             });
@@ -59,11 +59,12 @@ let loadTopicDetail = (id, cb) => {
             let detail = response.data;
             detail.visit_count = common.buildVisitCount(detail.visit_count);
             detail.last_reply_at = common.formatDate(detail.last_reply_at, "yyyy/MM/dd");
-            detail.content = common.buildTopicSummary(detail.content);
+            detail.content = common.convertMarkdown(detail.content);
             detail.tag = buildTopicTag(detail)
             if (detail.replies && detail.replies.length > 0) {
                 detail.replies.forEach(item => {
                     item.create_at = common.formatDate(item.create_at, "yyyy/MM/dd");
+                    item.content = common.convertMarkdown(item.content);
                 });
             }
             topic = detail;
