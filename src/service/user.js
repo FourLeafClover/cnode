@@ -97,6 +97,44 @@ let likeComment = (commentId, cb) => {
     });
 }
 
+let loadMessage = (cb) => {
+    axios({
+        method: 'get',
+        url: `/messages`,
+        isAuth: true
+    }).then(response => {
+        if (response && response.success) {
+            cb(response.data);
+        }
+    });
+}
+
+let loadMessageCount = (cb) => {
+    axios({
+        method: 'get',
+        url: `/message/count`,
+        isAuth: true
+    }).then(response => {
+        if (response && response.success) {
+            cb(response.data);
+        }
+    });
+}
+
+let readMessage = (messageid, cb) => {
+    let token = getAccessToken();
+    axios({
+        method: "post",
+        url: `/message/mark_one/${messageid}`,
+        data: `accesstoken=${token}`,
+        isAuth: true,
+    }).then(response => {
+        if (response.success) {
+            cb(response.data);
+        }
+    });
+}
+
 export default {
     isLogin: isLogin,
     loginOut: loginOut,
@@ -107,5 +145,8 @@ export default {
     unCollectTopic: unCollectTopic,
     getAccessToken: getAccessToken,
     likeComment: likeComment,
-    addComment: addComment
+    addComment: addComment,
+    loadMessage: loadMessage,
+    readMessage: readMessage,
+    loadMessageCount: loadMessageCount
 }

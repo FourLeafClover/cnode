@@ -6,6 +6,10 @@
         <div class="tab">
           <span>Cnode</span>
         </div>
+        <span class="message" v-show="loginUser!=null" :class="{active:messageCount>0}" @click="gotoMessage">
+          <i class="fa fa-bell"></i>
+          <i class="num" v-show="messageCount>0">{{messageCount}}</i>
+        </span>
         <div class="login" @click="login" v-if="loginUser==null">
           <span>登录</span>
         </div>
@@ -71,10 +75,21 @@
         ],
         isShowTabs: false,
         loginUser: null,
-        isMemberAccountPanelShow: false
+        isMemberAccountPanelShow: false,
+        messageCount: 0
       };
     },
     methods: {
+      loadMessageCount() {
+        userSvc.loadMessageCount((count) => {
+          this.$set(this.$data, "messageCount", count);
+        });
+      },
+      gotoMessage() {
+        this.$router.push({
+          path: "/message"
+        });
+      },
       gotoZone() {
         this.$router.push({
           name: "userzone",
@@ -103,6 +118,9 @@
       },
       setLoginUser() {
         this.$set(this.$data, "loginUser", userSvc.getLoginUser());
+        if (this.loginUser) {
+          this.loadMessageCount();
+        }
       },
       toggleMemberAccountPanel() {
         this.$set(
@@ -127,6 +145,9 @@
       this.setLoginUser();
       this.$root.$on("EVENT_LOGINOPERATOR", () => {
         this.setLoginUser();
+      });
+      this.$root.$on("EVENT_RELOADMESSAGECOUNT", () => {
+        this.loadMessageCount();
       });
     }
   };
@@ -196,6 +217,26 @@
     right: 20px;
     line-height: 50px;
     top: 0px;
+  }
+
+  .header .message {
+    color: gray;
+    position: absolute;
+    right: 70px;
+    top: 0px;
+  }
+
+  .header .message.active i {
+    color: red;
+  }
+
+  .header .message .fa-bell {
+    line-height: 50px;
+    font-size: 20px;
+  }
+
+  .header .message .num {
+    font-size: 16px;
   }
 
   .memberaccount {

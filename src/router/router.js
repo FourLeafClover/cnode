@@ -2,6 +2,7 @@ import index from '@/pages/index'
 import detail from '@/pages/detail'
 import comment from "@/pages/comment"
 import zone from "@/pages/zone"
+import message from "@/pages/message"
 
 const routers = [{
     path: '/',
@@ -19,6 +20,10 @@ const routers = [{
     path: "/user/:username",
     name: "userzone",
     component: zone
+}, {
+    path: "/message",
+    name: "message",
+    component: message
 }]
 
 export default routers
