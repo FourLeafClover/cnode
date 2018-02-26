@@ -14,4 +14,5 @@ if (window.global == undefined) {
     window.global = {};
 }
 
+
 window.global.$vue = cnode_vue;

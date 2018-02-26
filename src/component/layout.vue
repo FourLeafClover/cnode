@@ -96,7 +96,6 @@
       },
       login() {
         this.$root.$emit("Event_OPENLOGIN");
-        this.toggleMemberAccountPanel();
       },
       loginout() {
         userSvc.loginOut();
