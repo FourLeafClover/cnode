@@ -9,7 +9,7 @@
         <div class="line1">
           <span class="time">
             阅读:{{detail.visit_count}}&nbsp;&nbsp;&nbsp; 评论:{{detail.reply_count}} &nbsp;&nbsp;&nbsp;{{detail.last_reply_at}} &nbsp;&nbsp;&nbsp;
-            <a style="color:blue;font-weight:bold">{{detail.author.loginname}}</a>
+            <router-link :to="{name:'userzone',params:{username:detail.author.loginname}}" style="color:blue;font-weight:bold">{{detail.author.loginname}}</router-link>
           </span>
         </div>
         <div class="markdown" v-html="detail.content"></div>

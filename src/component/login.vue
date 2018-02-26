@@ -3,19 +3,21 @@
     <div>
       <img class="log" src="../assets/img/log.jpg" />
     </div>
-    <div class="line1">
-      <textarea v-model="token" placeholder="请输入登陆Token" />
-    </div>
-    <div class="btn" @click="login">
-      登陆验证
-    </div>
-    <span class="close" @click="closeLogin()">
-      <i class="fa fa-close"></i>
-    </span>
-    <div class="author" @click="aboutme()"></div>
-    <div class="findToken">
-      <span>没有登陆Token?</span>
-      <a href="https://cnodejs.org/signin">点击获取</a>
+    <div class="content">
+      <div class="line1">
+        <textarea v-model="token" placeholder="请输入登陆Token" />
+      </div>
+      <div class="btn" @click="login">
+        登陆验证
+      </div>
+      <span class="close" @click="closeLogin()">
+        <i class="fa fa-close"></i>
+      </span>
+      <div class="author" @click="aboutme()"></div>
+      <div class="findToken">
+        <span>没有登陆Token?</span>
+        <a href="https://cnodejs.org/signin">点击获取</a>
+      </div>
     </div>
     <div class="footer">
       <div>
@@ -26,7 +28,7 @@
       </div>
       <div class="aboutme">
         <a href="http://47.97.172.44/aboutme/">
-          <i class="fa fa-user-circle"></i> 关于我</a>
+          <i class="fa fa-user-circle"></i>关于我</a>
       </div>
     </div>
   </div>
@@ -75,9 +77,9 @@
     z-index: 1000;
     width: 100%;
     height: 100%;
-    padding: 20px;
     transform: translateY(100%);
     transition: all 0.5s;
+    padding-top: 20px;
   }
 
   .loginPanel.on {
@@ -106,6 +108,10 @@
     border-radius: 5px;
     font-size: 18px;
     padding: 20px;
+  }
+
+  .loginPanel .content {
+    padding: 0 20px;
   }
 
   .btn {
@@ -160,10 +166,6 @@
     width: 50%;
     float: left;
     font-size: 15px;
-    position: relative;
-  }
-
-  .footer>div {
     text-align: center;
   }
 </style>
