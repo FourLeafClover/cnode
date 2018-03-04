@@ -111,7 +111,7 @@ let buildVisitCount = (count) => {
 }
 
 let convertMarkdown = (markdownStr) => {
-    let locationPath = window.location.origin + window.location.pathname + "/#";
+    let locationPath = window.location.origin + window.location.pathname + "#";
     while (markdownStr.indexOf('src=\"//dn-cnode.qbox.me') >= 0) {
         markdownStr = markdownStr.replace('src=\"//dn-cnode.qbox.me', "src=\"http://dn-cnode.qbox.me");
     }

@@ -50,13 +50,13 @@
       layout: layout
     },
     created() {
-      if (common.getClientType() == "PC") {
+      /*if (common.getClientType() == "PC") {
         this.$root.$emit("EVENT_SHOWTOAST", {
           content: "PC浏览器请使用鼠标左键上下拖动页面来实现翻页加载数据,原因:Better Scroll插件,不支持通过滚动鼠标转轮,或者拖动浏览器滚动条",
           type: "warning",
           time: 4000
         });
-      }
+      }*/
       this.getTopics(1);
     },
     methods: {
