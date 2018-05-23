@@ -13,7 +13,7 @@
 * 本地编译: npm run build
 * 部署到服务器:npm run delpoy
 * 因为IOS手机里面JS加载完毕才渲染界面,所以为了保证IOS初次加载动画效果,请发布前将build下的index.html中
-引用mian.hash.js加上async熟悉<script type="text/javascript" async='async' src="/static/js/main.7856a4d9.js"></script>
+引用mian.hash.js加上async属性<script type="text/javascript" async='async' src="/static/js/main.7856a4d9.js"></script>
 
 ### [demo](http://www.intelligenttech.top/#/)
 
