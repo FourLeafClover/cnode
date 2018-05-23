@@ -1,7 +1,9 @@
 ### React-CNODE项目介绍
 
    1. 此项目基于React+Redux+Webpack+Gulp-ssh+Antd-mobile,主要使用webpack构建项目,gulp-ssh用于自动发布文件包到服务器。
-   2. 服务器使用的阿里云的centos服务器,挂在到nginx环境上。
+   
+   2. 服务器使用的阿里云的centos服务器,挂在到nginx环境上。
+   
    3. 项目是基于create-react-app开发的。请按照create-react-app
 
 ## 指令介绍   
