@@ -1,4 +1,23 @@
-### 项目介绍
+### React-CNODE项目介绍
+
+   1. 此项目基于React+Redux+Webpack+Gulp-ssh+Antd-mobile,主要使用webpack构建项目,gulp-ssh用于自动发布文件包到服务器。
+   2. 服务器使用的阿里云的centos服务器,挂在到nginx环境上。
+   3. 项目是基于create-react-app开发的。请按照create-react-app
+
+## 指令介绍   
+
+* 安装依赖包：npm install 
+* 本地运行: npm run start
+* 本地编译: npm run build
+* 部署到服务器:npm run delpoy
+* 因为IOS手机里面JS加载完毕才渲染界面,所以为了保证IOS初次加载动画效果,请发布前将build下的index.html中
+引用mian.hash.js加上async熟悉<script type="text/javascript" async='async' src="/static/js/main.7856a4d9.js"></script>
+
+### [demo](http://www.intelligenttech.top/#/)
+
+![](https://images2018.cnblogs.com/blog/657942/201805/657942-20180523165730911-1904066823.png)   
+
+### VUE-CNODE项目介绍
 
    1. 此项目基于Vue+Webpack+Gulp-ssh,主要使用webpack构建项目,gulp-ssh用于自动发布文件包到服务器。
    2. 服务器使用的阿里云的centos服务器,挂在到tomcat+nginx环境上。
@@ -33,11 +52,11 @@
     };
  
 
-### [demo](http://47.97.172.44/cnode/)
+### [demo](http://www.intelligenttech.top/cnode/)
 
   因为使用的better-scroll,better-scroll首页的滚动翻页,PC端只能通过鼠标上下拖动来加载下一页，请不要滚动鼠标滚轮，或者拖动浏览器右边滚动条。否则无法加载下一页。mobile管一直都是通过滑动屏幕来实现的所以没有该问题。建议扫描二维码来查看效果。
 
-![](https://images2018.cnblogs.com/blog/657942/201802/657942-20180223111037408-51278528.png)   
+![](https://images2018.cnblogs.com/blog/657942/201805/657942-20180523165652795-1262030106.png)   
 
 ### 有问题反馈
 
