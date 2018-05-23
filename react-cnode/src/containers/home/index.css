@@ -1,0 +1,39 @@
+.homelist .item .header {
+    position: relative;
+}
+
+.homelist .item .header img {
+    border-radius: 50%;
+    height: 30px;
+}
+
+.homelist {
+    height: 100%;
+}
+
+.homelist .item .header span {
+    line-height: 30px;
+    position: absolute;
+    /* top: 9px; */
+    left: 40px;
+    font-size: 18px;
+}
+
+.homelist .am-list-header {
+    padding: 2.5px !important;
+}
+
+.hometab .am-tabs-default-bar-tab-active {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    font-style: inherit
+}
+
+.userPopver .am-popover-item-content {
+    font-size: 18px;
+    padding: 10px 0px;
+}
+
+.aboutme .am-list-thumb img{
+    border-radius: 50%;
+}

@@ -1,0 +1,180 @@
+.detail .bottombar {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+.detail{
+    padding-bottom: 80px;
+    -moz-box-sizing: border-box;
+    /*Firefox3.5+*/
+    -webkit-box-sizing: border-box;
+    /*Safari3.2+*/
+    -o-box-sizing: border-box;
+    /*Opera9.6*/
+    -ms-box-sizing: border-box;
+    /*IE8*/
+    box-sizing: border-box;
+    
+}
+
+.detail .info {
+    overflow-x: hidden;
+    background-color: white;
+    -moz-box-sizing: border-box;
+    /*Firefox3.5+*/
+    -webkit-box-sizing: border-box;
+    /*Safari3.2+*/
+    -o-box-sizing: border-box;
+    /*Opera9.6*/
+    -ms-box-sizing: border-box;
+    /*IE8*/
+    box-sizing: border-box;
+}
+
+.info>.title {
+    padding: 20px 10px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 40px;
+    background-color: #0084ff;
+    color: white;
+}
+
+.pv {
+    padding: 5px 10px;
+    position: relative;
+    border-top: 5px solid #f4f5f5;
+    border-bottom: 5px solid #f4f5f5;
+}
+
+.pv img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.pv .name {
+    color: dodgerblue;
+    position: absolute;
+    top: 10px;
+    left: 70px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 0;
+}
+
+.pv .time {
+    color: gray;
+    position: absolute;
+    top: 35px;
+    left: 70px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 0;
+}
+
+.detail {
+    padding-bottom: 50px;
+    -moz-box-sizing: border-box;
+    /*Firefox3.5+*/
+    -webkit-box-sizing: border-box;
+    /*Safari3.2+*/
+    -o-box-sizing: border-box;
+    /*Opera9.6*/
+    -ms-box-sizing: border-box;
+    /*IE8*/
+    box-sizing: border-box;
+}
+
+.detail .markdown-text {
+    width: 100%;
+    padding: 10px;
+    padding: 10px;
+    -moz-box-sizing: border-box;
+    /*Firefox3.5+*/
+    -webkit-box-sizing: border-box;
+    /*Safari3.2+*/
+    -o-box-sizing: border-box;
+    /*Opera9.6*/
+    -ms-box-sizing: border-box;
+    /*IE8*/
+    box-sizing: border-box;
+}
+
+.detail .markdown-text img {
+    width: 100%;
+}
+
+.detail .markdown-text pre {
+    width: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    font-size: 12px;
+    background: #f0f0f0;
+    line-height: 20px;
+    padding: 10px;
+    -moz-box-sizing: border-box;
+    /*Firefox3.5+*/
+    -webkit-box-sizing: border-box;
+    /*Safari3.2+*/
+    -o-box-sizing: border-box;
+    /*Opera9.6*/
+    -ms-box-sizing: border-box;
+    /*IE8*/
+    box-sizing: border-box;
+}
+
+.detail .markdown-text p {
+    margin-top: 10px;
+    word-break: break-word;
+}
+
+.detail .markdown-text li {
+    list-style-type: decimal !important;
+    margin-top: 5px;
+    list-style-position: outside;
+    margin-left: 5px;
+    padding: 0px !important;
+}
+
+.detail .markdown-text img {
+    width: 100%;
+}
+
+.detail .markdown-text p,
+li,
+a {
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.detail .markdown-text h1,
+h2,
+h3,
+h4,
+h5,
+strong {
+    font-weight: bold;
+}
+
+.detail .markdown-text h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 10px;
+}
+
+.detail .markdown-text a {
+    color: blue;
+}
+
+.detail .markdown-text blockquote {
+    display: block;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}

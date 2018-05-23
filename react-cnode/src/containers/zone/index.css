@@ -1,0 +1,23 @@
+.zoneDetail {
+    background-color: white;
+}
+
+.zoneDetail .am-list-item {
+    border-bottom: 3px solid #f4f5f5;
+}
+
+.zoneDetail .am-list-content {
+    white-space: normal !important;
+}
+
+.zoneDetail .end {
+    background-color: #f4f5f5;
+    text-align: center;
+    padding: 10px;
+}
+
+.zoneDetail .end .am-list-content {
+    font-size: 14px;
+    text-align: center;
+    color: gray;
+}

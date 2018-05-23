@@ -1,0 +1,161 @@
+.commentList {
+    padding-bottom: 80px;
+    -moz-box-sizing: border-box;
+    /*Firefox3.5+*/
+    -webkit-box-sizing: border-box;
+    /*Safari3.2+*/
+    -o-box-sizing: border-box;
+    /*Opera9.6*/
+    -ms-box-sizing: border-box;
+    /*IE8*/
+    box-sizing: border-box;
+}
+
+.commentList .item .header {
+    position: relative;
+}
+
+.commentList .item .header img {
+    border-radius: 50%;
+    height: 30px;
+}
+
+.commentList .item .header span {
+    line-height: 30px;
+    position: absolute;
+    /* top: 9px; */
+    left: 40px;
+    font-size: 18px;
+    color: dodgerblue;
+    min-width: 200px;
+}
+
+.commentList .bottomBar {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 10px;
+    -moz-box-sizing: border-box;
+    /*Firefox3.5+*/
+    -webkit-box-sizing: border-box;
+    /*Safari3.2+*/
+    -o-box-sizing: border-box;
+    /*Opera9.6*/
+    -ms-box-sizing: border-box;
+    /*IE8*/
+    box-sizing: border-box;
+    background-color: white;
+    z-index: 99;
+}
+
+.commentList .bottomBar.on {
+    background-color: #108ee9;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.commentList .markdown-text {
+    width: 100%;
+    padding: 10px;
+    padding: 10px;
+    -moz-box-sizing: border-box;
+    /*Firefox3.5+*/
+    -webkit-box-sizing: border-box;
+    /*Safari3.2+*/
+    -o-box-sizing: border-box;
+    /*Opera9.6*/
+    -ms-box-sizing: border-box;
+    /*IE8*/
+    box-sizing: border-box;
+}
+
+.commentList .markdown-text img {
+    width: 100%;
+}
+
+.commentList .markdown-text pre {
+    width: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    font-size: 12px;
+    background: #f0f0f0;
+    line-height: 20px;
+}
+
+.commentList .markdown-text p {
+    margin-top: 10px;
+}
+
+.commentList .markdown-text li {
+    list-style-type: decimal !important;
+    margin-top: 5px;
+    list-style-position: outside;
+    margin-left: 5px;
+    padding: 0px !important;
+}
+
+.commentList .markdown-text img {
+    width: 100%;
+}
+
+.commentList .cover {
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: black;
+    opacity: 0.5;
+}
+
+.commentList .markdown-text p,
+li,
+a {
+    font-size: 16px;
+    line-height: 20px;
+    color: gray;
+    word-break: break-all;
+}
+
+.commentList .markdown-text h1,
+h2,
+h3,
+h4,
+h5,
+strong {
+    font-weight: bold;
+    word-break: break-all;
+}
+
+.commentList .markdown-text h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 10px;
+}
+
+.commentList .markdown-text a {
+    color: blue;
+}
+
+.commentList .markdown-text blockquote {
+    display: block;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.addReplies .title {
+    padding: 10px;
+}
+
+.addReplies .item {
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 10px;
+}

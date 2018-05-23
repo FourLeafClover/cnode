@@ -1,0 +1,6 @@
+.message .am-list-thumb img {
+    width: 30px !important;
+    height: 30px !important;
+    vertical-align: middle !important;
+    border-radius: 50% !important;
+}

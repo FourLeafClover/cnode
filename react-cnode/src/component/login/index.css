@@ -1,0 +1,109 @@
+.loginPanel {
+    position: fixed;
+    top: 0px;
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px grey;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    transform: translateY(130%);
+    transition: all 0.5s;
+    padding-top: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.loginPanel.on {
+    transition: all 0.5s;
+    transform: translateY(0);
+}
+
+.loginPanel .log {
+    width: 50%;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 100px;
+    transform: translateX(-50%);
+}
+
+.loginPanel .line1 {
+    margin-top: 60px;
+}
+
+.loginPanel textarea {
+    line-height: 25px;
+    height: 300px;
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.loginPanel .content {
+    padding: 0 20px;
+}
+
+.loginPanel .btn {
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: green;
+    right: 20px;
+    top: 20px;
+    color: 20px;
+    text-align: center;
+    letter-spacing: 5px;
+    color: white;
+    margin-top: 10px;
+    width: 100%;
+    padding: 5px 0px;
+}
+
+.loginPanel .close {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    font-size: 25px;
+    color: gray;
+}
+
+.loginPanel .author {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    height: 30px;
+    width: 30px;
+    background-size: contain;
+    background-image: url(http://47.97.172.44/aboutme/assets/img/log3.jpg);
+    border-radius: 50%;
+}
+
+.loginPanel .findToken {
+    width: 100%;
+    text-align: right;
+    padding-top: 10px;
+}
+
+.loginPanel .footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 10px 0px;
+}
+
+.loginPanel .footer>div {
+    width: 50%;
+    float: left;
+    font-size: 15px;
+    text-align: center;
+}

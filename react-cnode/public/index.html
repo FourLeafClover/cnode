@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+  <link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+  <meta name="full-screen" content="yes">
+  <meta name="x5-orientation" content="portrait">
+  <meta name="x5-orientation" content="portrait">
+  <meta name="x5-page-mode" content="app">
+  <meta name="screen-orientation" content="portrait">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#108ee9" />
+  <meta name="x5-fullscreen" content="true">
+  <meta name="full-screen" content="yes">
+  <title></title>
+  <style>
+    #appstart img {
+      display: block;
+      position: fixed;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+      width: 50px;
+      border-radius: 50%;
+      top: 80px;
+    }
+
+    #appstart .notice {
+      width: 100%;
+      position: fixed;
+      text-align: center;
+      top: 140px;
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="appstart">
+    <img id="appstartImg" src="http://47.97.172.44/cnode/assets/img/log1.jpg" />
+    <script>
+      document.getElementById("appstartImg").style.left = ((window.innerWidth / 2) - 25) + 'px'
+    </script>
+    <div class="notice">应用加载中
+      <br/>请耐心等待</div>
+  </div>
+  <div id="root"></div>
+</body>
+
+</html>
