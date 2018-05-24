@@ -25,7 +25,7 @@ module.exports = {
             names: ['vendor', 'manifest'],
         }),
         new HtmlWebpackPlugin({
-            title: 'V电影',
+            title: '',
             template: resolve("src/index.html"),
             inject: true,
             //favicon: resolve("src/favicon.ico") 因为目前我没有ico图片,所以不设置

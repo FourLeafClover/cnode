@@ -1,7 +1,8 @@
 var gulp = require('gulp');
 var GulpSSH = require('gulp-ssh');
 //载入配置文件
-var config = require('./server.conf');
+var config = require('./build/delpoy.conf.js');
+console.log(config)
 var sshConfig = config.ssh;
 //打开ssh通道
 var gulpSSH = new GulpSSH({
@@ -18,7 +19,7 @@ gulp.task('default', ['deployFile'], function () {});
  */
 gulp.task('deployFile', ['execSSH'], () => {
     return gulp
-        .src(['./build/**'])
+        .src(['./dist/**'])
         .pipe(gulpSSH.dest(config.remoteDir));
 });
 

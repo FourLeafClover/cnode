@@ -109,7 +109,7 @@ class HomePage extends Component {
             else {
                 apiContent = `${content}  \x0a \x0a  [★来自antd-cnode★](http://www.intelligenttech.top/#/)`;
             }
-            cnodeSvc.addComment(this.props.match.params.id, apiContent, replyId).then(res => {
+            cnodeSvc.addComment(this.props.params.id, apiContent, replyId).then(res => {
                 if (res.success) {
                     this.setState({
                         myAddReplies: [...this.state.myAddReplies, content],
