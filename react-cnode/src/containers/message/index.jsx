@@ -18,6 +18,7 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
+        document.title = '我的消息'
         cnodeSvc.loadMessage().then(res => {
             if (res.success) {
                 this.setState({

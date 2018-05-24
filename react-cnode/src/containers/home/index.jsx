@@ -98,6 +98,7 @@ class HomePage extends Component {
     gotoZone() {
         auth.checkLogin().then(res => {
             if (res) {
+                this.toggleMenu();
                 Control.go(`/user/${this.props.loginUser.loginname}`)
             }
         })
@@ -106,13 +107,16 @@ class HomePage extends Component {
     gotoMessage() {
         auth.checkLogin().then(res => {
             if (res) {
+                this.setState({
+                    isOpenMenu: false
+                })
                 Control.go(`/message`)
             }
         })
     }
 
     componentDidMount() {
-        document.title = 'CNODE中文社区';
+        document.title = 'Cnode社区|首页';
         cnodeSvc.loadHomePage(1, this.pageSize, "", (result) => {
             this.tabsItems.all = result.reverse();
             this.state.tabsDataSource.all = this.state.tabsDataSource.all.cloneWithRows(this.tabsItems.all);
@@ -128,6 +132,10 @@ class HomePage extends Component {
                 })
             })
         }
+    }
+
+    componentWillReceiveProps() {
+        document.title = 'Cnode社区|首页'
     }
 
     renderContent = tab => {
@@ -281,7 +289,7 @@ class HomePage extends Component {
                 <List.Item style={{ marginBottom: '5px' }} extra='求关注' onClick={() => window.location.href = 'https://github.com/FourLeafClover'} className="aboutme" thumb="https://www.easyicon.net/api/resizeApi.php?id=1188783&size=24" arrow="horizontal">
                     Github
                 </List.Item>
-                <List.Item style={{ marginBottom: '5px', display: `${this.props.loginUser == null ? 'none' : ''}` }} arrow="horizontal" onClick={this.props.logout}>
+                <List.Item style={{ marginBottom: '5px', display: `${this.props.loginUser == null ? 'none' : ''}` }} arrow="horizontal" onClick={() => { this.toggleMenu(); this.props.logout() }}>
                     注销账户
                 </List.Item>
                 <List.Item onClick={this.toggleMenu} arrow="horizontal">
