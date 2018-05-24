@@ -7,6 +7,7 @@ import { Icon, TabBar, Toast } from 'antd-mobile';
 import cnodeSvc from '../../api/cnode.js';
 import auth from '../../utils/auth';
 import { connect } from 'react-redux';
+import { Control } from 'react-keeper'
 
 class HomePage extends Component {
 
@@ -19,7 +20,11 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
-        let id = this.props.match.params.id;
+        this.initPage(this.props.params.id);
+    }
+
+
+    initPage(id) {
         document.title = "文章加载中"
         cnodeSvc.loadTopicDetail(id).then(res => {
             if (res.success) {
@@ -92,7 +97,7 @@ class HomePage extends Component {
                         }
                         title='首页'
                         key="Koubei"
-                        onPress={() => this.props.history.push(`/`)}
+                        onPress={() => Control.go(`/`)}
                         data-seed="logId"
                     >
                     </TabBar.Item>
@@ -110,7 +115,7 @@ class HomePage extends Component {
                         }
                         title={`评论[${this.state.detail.replies.length}]`}
                         key="Koubei"
-                        onPress={() => this.props.history.push(`/comment/${this.state.detail.id}`)}
+                        onPress={() => Control.go(`/comment/${this.state.detail.id}`)}
                         data-seed="logId"
                     >
                     </TabBar.Item>
@@ -127,8 +132,8 @@ class HomePage extends Component {
                             {this.state.detail.title}
                         </div>
                         <div className="pv">
-                            <img src={this.state.detail.author.avatar_url} onClick={() => this.props.history.push(`/user/${this.state.detail.author.loginname}`)} />
-                            <span className='name' onClick={() => this.props.history.push(`/user/${this.state.detail.author.loginname}`)}>{this.state.detail.author.loginname}</span>
+                            <img src={this.state.detail.author.avatar_url} onClick={() => Control.go(`/user/${this.state.detail.author.loginname}`)} />
+                            <span className='name' onClick={() => Control.go(`/user/${this.state.detail.author.loginname}`)}>{this.state.detail.author.loginname}</span>
                             <span className='time'>发布于:{this.state.detail.create_at.substr(0, 10)} 阅读:{this.state.detail.visit_count}</span>
                         </div>
                         <div className="markdown" dangerouslySetInnerHTML={{ __html: this.state.detail.content }}>

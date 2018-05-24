@@ -7,6 +7,7 @@ import cnodeSvc from '../../api/cnode.js';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/index';
 import auth from '../../utils/auth';
+import { Control } from 'react-keeper'
 
 class HomePage extends Component {
 
@@ -97,7 +98,7 @@ class HomePage extends Component {
     gotoZone() {
         auth.checkLogin().then(res => {
             if (res) {
-                this.props.history.push(`/user/${this.props.loginUser.loginname}`)
+                Control.go(`/user/${this.props.loginUser.loginname}`)
             }
         })
     }
@@ -105,7 +106,7 @@ class HomePage extends Component {
     gotoMessage() {
         auth.checkLogin().then(res => {
             if (res) {
-                this.props.history.push(`/message`)
+                Control.go(`/message`)
             }
         })
     }
@@ -155,11 +156,11 @@ class HomePage extends Component {
                     <Card>
                         <Card.Header
                             title={(<div className="header">
-                                <img src={obj.author.avatar} alt="" style={{ zIndex: '9' }} onClick={(e) => this.props.history.push(`/user/${obj.author.name}`)} />
-                                <span style={{ zIndex: '9', color: "#0084ff", width: '300px' }} onClick={() => this.props.history.push(`/user/${obj.author.name}`)}>{obj.author.name}</span>
+                                <img src={obj.author.avatar} alt="" style={{ zIndex: '9' }} onClick={(e) => Control.go(`/user/${obj.author.name}`)} />
+                                <span style={{ zIndex: '9', color: "#0084ff", width: '300px' }} onClick={() => Control.go(`/user/${obj.author.name}`)}>{obj.author.name}</span>
                             </div>)}
                         />
-                        <Card.Body onClick={() => this.props.history.push(`/topic/${obj.id}`)}>
+                        <Card.Body onClick={() => Control.go(`/topic/${obj.id}`)}>
                             <div style={{ paddingBottom: '10px', wordBreak: 'break-all', fontWeight: 'bold', fontSize: '18px' }}>{obj.title}</div>
                             <div style={{ wordBreak: 'break-all', fontSize: '16px', overflowX: 'hidden', overflowY: 'hidden', color: 'gray', lineHeight: '25px' }} >{obj.content.substr(0, 80)}</div>
                         </Card.Body>

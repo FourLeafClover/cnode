@@ -7,6 +7,7 @@ import { Card, Icon, Toast, Button, TextareaItem } from 'antd-mobile';
 import cnodeSvc from '../../api/cnode.js';
 import { connect } from 'react-redux';
 import auth from '../../utils/auth';
+import { Control } from 'react-keeper';
 
 class HomePage extends Component {
 
@@ -24,7 +25,7 @@ class HomePage extends Component {
 
     componentDidMount() {
         document.title = '评论区';
-        let id = this.props.match.params.id;
+        let id = this.props.params.id;
         cnodeSvc.loadTopicDetail(id).then(res => {
             if (res.success) {
                 res.data.replies.forEach(item => {
@@ -139,7 +140,7 @@ class HomePage extends Component {
                         <Card.Header
                             title={(<div className="header">
                                 <img src={item.author.avatar_url} style={{ zIndex: '9' }} onClick={(e) => this.props.history.push(`/user/${item.author.loginname}`)} />
-                                <span style={{ zIndex: '9' }} onClick={() => this.props.history.push(`/user/${item.author.loginname}`)}>{item.author.loginname}</span>
+                                <span style={{ zIndex: '9' }} onClick={() => Control.go(`/user/${item.author.loginname}`)}>{item.author.loginname}</span>
                             </div>)}
                         />
                         <Card.Body dangerouslySetInnerHTML={{ __html: item.content }}>

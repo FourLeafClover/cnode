@@ -5,6 +5,7 @@ import React, {
 import { List, Toast, Tabs } from 'antd-mobile';
 import cnodeSvc from '../../api/cnode.js';
 import './index.css'
+import { Control } from 'react-keeper'
 
 class HomePage extends Component {
 
@@ -32,7 +33,7 @@ class HomePage extends Component {
         if (!item.has_read) {
             cnodeSvc.readMessage(item.id);
         }
-        this.props.history.push(`/topic/${item.topic.id}`);
+        Control.go(`/topic/${item.topic.id}`);
     }
 
     renderContent(items) {

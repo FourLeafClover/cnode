@@ -3,9 +3,10 @@ import React, {
     Component
 } from 'react';
 
-import { List, NavBar, Toast,Tabs } from 'antd-mobile';
+import { List, NavBar, Toast, Tabs } from 'antd-mobile';
 import cnodeSvc from '../../api/cnode.js';
 import { connect } from 'react-redux';
+import { Control } from 'react-keeper';
 
 const Item = List.Item;
 
@@ -20,7 +21,7 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
-        let name = this.props.match.params.name;
+        let name = this.props.params.name;
         document.title = "个人信息加载中"
         cnodeSvc.loadUser(name).then(res => {
             if (res.success) {
@@ -52,7 +53,7 @@ class HomePage extends Component {
                     <List className="my-list">
                         {
                             items.map((item, key) => {
-                                return <Item key={key} onClick={() => this.props.history.push(`/topic/${item.id}`)}>{item.title}</Item>
+                                return <Item key={key} onClick={() => Control.go(`/topic/${item.id}`)}>{item.title}</Item>
                             })
                         }
                     </List>
@@ -76,7 +77,7 @@ class HomePage extends Component {
         return (<div className="zoneDetail">
             <NavBar
                 mode="light"
-                onLeftClick={() => this.props.history.go(-1)}
+                onLeftClick={() => Control.go(-1)}
                 leftContent={[
                     this.state.model !== null ? (<img style={{ height: '30px', width: '30px', borderRadius: '50%' }} src={this.state.model.avatar_url} alt="" />) : (<div></div>),
                     <span style={{ color: '#108ee9', fontSize: '16px', width: '100vh', fontWeight: 'bold', paddingLeft: '10px' }}>{this.state.model != null ? `${this.state.model.loginname}的主页` : ""}</span>

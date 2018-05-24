@@ -5,7 +5,8 @@ import TopicPage from '../containers/topic'
 import ZonePage from '../containers/zone'
 import CommentPage from '../containers/comment'
 import MessagePage from '../containers/message'
-import { HashRouter, Route } from 'react-router-dom'
+//import { HashRouter, Route } from 'react-router-dom'
+import { Route, HashRouter } from 'react-keeper'
 class Routes extends Component {
 
     constructor(...args) {
@@ -23,11 +24,11 @@ class Routes extends Component {
             <HashRouter>
                 <div>
                     <Login />
-                    <Route cache path="/" exact component={HomePage} />
-                    <Route cache path="/user/:name" component={ZonePage} />
-                    <Route cache path='/topic/:id' component={TopicPage} />
-                    <Route cache path='/comment/:id' component={CommentPage} />
-                    <Route cache path='/message' component={MessagePage} />
+                    <Route index cache component={HomePage} path="/home" />
+                    <Route path="/user/:name" component={ZonePage} />
+                    <Route path='/topic/:id' component={TopicPage} />
+                    <Route path='/comment/:id' component={CommentPage} />
+                    <Route path='/message' component={MessagePage} />
                 </div>
             </HashRouter>
         )
