@@ -274,19 +274,19 @@ class HomePage extends Component {
             }}>
             {this.getRightMenuLoginPanel()}
             <div>
-                <List.Item style={{ marginBottom: '5px' }} onClick={this.gotoZone} thumb="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=4b7f89872d3fb80e0cd166d10eea4813/b8014a90f603738de3e18994bf1bb051f919ecd9.jpg" arrow="horizontal">
+                <List.Item style={{ marginBottom: '5px' }} onClick={this.gotoZone} thumb="http://www.intelligenttech.top/imageservice/cnode/zone.jpg" arrow="horizontal">
                     我的主页
                 </List.Item>
-                <List.Item style={{ marginBottom: '5px' }} onClick={this.gotoMessage} thumb="https://www.easyicon.net/api/resizeApi.php?id=1143778&size=24" arrow="horizontal">
+                <List.Item style={{ marginBottom: '5px' }} onClick={this.gotoMessage} thumb="http://www.intelligenttech.top/imageservice/cnode/message.png" arrow="horizontal">
                     我的消息
                 </List.Item>
-                <List.Item style={{ marginBottom: '5px' }} onClick={() => Toast.info("暂未发布此功能,请耐心等待")} thumb="https://www.easyicon.net/api/resizeApi.php?id=1195373&size=24" arrow="horizontal">
+                <List.Item style={{ marginBottom: '5px' }} onClick={() => Toast.info("暂未发布此功能,请耐心等待")} thumb="http://www.intelligenttech.top/imageservice/cnode/edit.png" arrow="horizontal">
                     发布话题
                 </List.Item>
-                <List.Item style={{ marginBottom: '5px' }} onClick={() => window.location.href = 'http://www.intelligenttech.top/aboutme'} className="aboutme" thumb="http://47.97.172.44/aboutme/assets/img/log3.jpg" arrow="horizontal">
+                <List.Item style={{ marginBottom: '5px' }} onClick={() => window.location.href = 'http://www.intelligenttech.top/aboutme'} className="aboutme" thumb="http://www.intelligenttech.top/imageservice/cnode/myPhoto.jpg" arrow="horizontal">
                     About Developer
                 </List.Item>
-                <List.Item style={{ marginBottom: '5px' }} extra='求关注' onClick={() => window.location.href = 'https://github.com/FourLeafClover'} className="aboutme" thumb="https://www.easyicon.net/api/resizeApi.php?id=1188783&size=24" arrow="horizontal">
+                <List.Item style={{ marginBottom: '5px' }} extra='求关注' onClick={() => window.location.href = 'https://github.com/FourLeafClover'} className="aboutme" thumb="http://www.intelligenttech.top/imageservice/cnode/github.png" arrow="horizontal">
                     Github
                 </List.Item>
                 <List.Item style={{ marginBottom: '5px', display: `${this.props.loginUser == null ? 'none' : ''}` }} arrow="horizontal" onClick={() => { this.toggleMenu(); this.props.logout() }}>
@@ -326,7 +326,7 @@ class HomePage extends Component {
                         zIndex: 2
                     }}
                     leftContent={[
-                        <img src="http://47.97.172.44/cnode/assets/img/log1.jpg" key={1} style={{ width: '35px' }} />,
+                        <img src="http://www.intelligenttech.top/imageservice/cnode/logo.jpg" key={1} style={{ width: '35px' }} />,
                         <span key={2} style={{
                             marginLeft: '5px',
                             fontWeight: 'bold',

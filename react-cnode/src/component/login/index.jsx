@@ -59,7 +59,7 @@ class Login extends Component {
                         <a href="https://github.com/FourLeafClover">Github</a>
                     </div>
                     <div className="aboutme">
-                        <a href="http://47.97.172.44/aboutme/">
+                        <a href="http://www.intelligenttech.top/aboutme/">
                             关于我
                         </a>
                     </div>
