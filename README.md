@@ -1,6 +1,6 @@
 ### React-CNODE项目介绍
 
-   1. 此项目基于Create React App+Redux++Antd-mobile,主要使用webpack构建项目,gulp-ssh用于自动发布文件包到服务器。
+   1. 此项目基于webpack+axios+Redux++Antd-mobile,主要使用webpack构建项目,gulp-ssh用于自动发布文件包到服务器。
    
    2. 服务器使用的阿里云的centos服务器,挂在到nginx环境上。
 
@@ -10,8 +10,6 @@
 * 本地运行: npm run start
 * 本地编译: npm run build
 * 部署到服务器:npm run delpoy
-* 因为IOS手机里面JS加载完毕才渲染界面,所以为了保证IOS初次加载动画效果,请发布前将build下的index.html中
-引用app.hash.js加上async属性<script type="text/javascript" async='async' src="/static/js/app.7856a4d9.js"></script>
 
 ### [demo](http://www.intelligenttech.top/#/)
 
@@ -26,10 +24,9 @@
 
 * 安装依赖包：npm install 
 * 本地运行: npm run start
-* 本地编译: npm run build
-* 部署到服务器: npm run deploy
+* 本地编译: npm run build(因为个人项目,没有测试环境,我也只内置了dev和prd两个环境)
+* 部署到服务器:npm run delpoy
 * /buld/deploy.conf.prd 文件的ssh里面配置服务器的ip地址和账号密码,如果有多台服务器可以在里面配置多个.
-
   
     module.exports = {
     

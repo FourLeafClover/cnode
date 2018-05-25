@@ -46,16 +46,45 @@ class HomePage extends Component {
                             if (item.type === 'at') {
                                 return (
                                     <List.Item key={key} thumb={item.author.avatar_url} onClick={() => this.handleMessage(item)} style={{ marginBottom: '5px' }} arrow="horizontal" >
-                                        {`${item.author.loginname}在话题中@了你`}
-                                        <List.Item.Brief>{item.topic.title}</List.Item.Brief>
+                                        {
+                                            (<div style={{
+                                                whiteSpace: 'nowrap',
+                                                textOverflow: 'ellipsis',
+                                                overflow: 'hidden',
+                                                fontSize: '16px'
+                                            }}>{item.topic.title} <br /> {`${item.author.loginname}@了你`}</div>)
+                                        }
+                                        <List.Item.Brief
+                                            style=
+                                            {{
+                                                whiteSpace: 'normal',
+                                                fontSize: '14px',
+                                                borderTop: '2px solid #f4f5f5',
+                                                paddingTop: '10px'
+                                            }}>{item.reply.content}</List.Item.Brief>
                                     </List.Item>
                                 )
                             }
                             else {
                                 return (
                                     <List.Item key={key} thumb={item.author.avatar_url} onClick={() => this.handleMessage(item)} style={{ marginBottom: '5px' }} arrow="horizontal" >
-                                        {`${item.author.loginname}回复了你的话题`}
-                                        <List.Item.Brief>{item.topic.title}</List.Item.Brief>
+                                        {
+                                            (<div style={{
+                                                whiteSpace: 'nowarp',
+                                                textOverflow: 'ellipsis',
+                                                overflow: 'hidden',
+                                                fontSize: '16px'
+                                            }}>{item.topic.title} <br /> {`${item.author.loginname}发表了评论`}</div>)
+                                        }
+                                        <List.Item.Brief
+                                            style=
+                                            {{
+                                                whiteSpace: 'normal',
+                                                fontSize: '14px',
+                                                borderTop: '2px solid #f4f5f5',
+                                                paddingTop: '10px'
+                                            }}
+                                        >{item.reply.content}</List.Item.Brief>
                                     </List.Item>
                                 )
                             }

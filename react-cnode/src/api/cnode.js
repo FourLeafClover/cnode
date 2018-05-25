@@ -113,6 +113,9 @@ let loadMessage = () => {
     return axios({
         method: 'get',
         url: `/messages`,
+        params: {
+            mdrender: false
+        },
         isAuth: true
     })
 }
