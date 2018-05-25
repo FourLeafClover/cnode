@@ -3,4 +3,3 @@ dist/
 package-lock.json
 logs/
 build/deploy.conf.prd.js
-react-cnode/build/
